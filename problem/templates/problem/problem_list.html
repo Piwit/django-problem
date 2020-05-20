@@ -1,0 +1,6 @@
+<h1>Problems</h1>
+<ul>
+{% for problem in object_list %}
+  <li><a href="{% url 'detail' problem.id %}">{{problem.page}} - {{problem.user}} - {{problem.problem}}</a></li>
+{% endfor %}
+</ul>

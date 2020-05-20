@@ -1,0 +1,10 @@
+<h1>Problem {{object.id}}</h1>
+<span>
+{% if object.done %}
+Resolved at {{object.done_at}}
+{% else %}
+Unresolved
+{% endif %}
+</span>
+<p>{{object.problem}}</p>
+<p>On {{object.page}} by {{object.user}} the {{object.reported_at}}</p>

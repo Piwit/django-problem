@@ -1,6 +1,6 @@
-# Django problems
+# Django Problem
 
-A Django application to report a problem.
+A Django application to report a problem / bug in your app.
 A problem is a text description linked to an user and a page.
 A problem can be marked as resolved.
 
@@ -12,8 +12,38 @@ A problem can be marked as resolved.
 
 ## Installation
 
-Url
-settings.py PROBLEM = {'PAGES': }
+Install the app with
+
+```
+pip install django-problem
+```
+
+
+Add `problem` to your `INSTALLED_APPS` in `settings.py`
+```python
+INSTALLED_APPS = [
+  ...,
+  'problem',
+  ...,
+]
+```
+
+In `settings.py` add the pages of your application
+
+```python
+PROBLEM = {
+  'PAGES': (
+    ('Home Page', 'Home Page'),
+    ('Settings', 'Settings'),
+  )
+}
+```
+
+Run the migration
+
+```
+python manage.py migrate
+```
 
 ## Usage
 
@@ -23,6 +53,13 @@ The application provide 3 simple templates
 * problem_list.html : List view of all problems
 
 You can override them by creating a file with the same name in  `templates/problem` in your app.
+
+To use the application out-of-the-box you can include urls in `urls.py` like this
+```
+urlpatterns += [
+    path('problem/', include('problem.urls')),
+]
+```
 
 If you want to link custom data to your problem, you can follow the steps below.
 
